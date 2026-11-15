@@ -2,8 +2,9 @@ package ambiente;
 
 import enums.TipoTerreno;
 import enums.NivelRisco;
+import java.io.Serializable;
 
-public class AreaOperacao {
+public class AreaOperacao implements Serializable {
     private int id;
     private String nome;
     private String localizacao;
@@ -12,7 +13,7 @@ public class AreaOperacao {
     private String descricao;
 
     public AreaOperacao(String descricao, int id, NivelRisco nivelRisco,
-                        String localizacao, String nome, TipoTerreno tipoTerreno) {
+            String localizacao, String nome, TipoTerreno tipoTerreno) {
         this.id = id;
         setDescricao(descricao);
         setNivelRisco(nivelRisco);
@@ -44,8 +45,7 @@ public class AreaOperacao {
     public void setLocalizacao(String localizacao) {
         if (localizacao == null || localizacao.isBlank()) {
             throw new IllegalArgumentException(
-                    "A area precisa de uma localizacao"
-            );
+                    "A area precisa de uma localizacao");
         }
 
         this.localizacao = localizacao;
@@ -58,8 +58,7 @@ public class AreaOperacao {
     public void setNivelRisco(NivelRisco nivelRisco) {
         if (nivelRisco == null) {
             throw new IllegalArgumentException(
-                    "O nivel de risco nao pode ser nulo"
-            );
+                    "O nivel de risco nao pode ser nulo");
         }
 
         this.nivelRisco = nivelRisco;
@@ -72,8 +71,7 @@ public class AreaOperacao {
     public void setNome(String nome) {
         if (nome == null || nome.isBlank()) {
             throw new IllegalArgumentException(
-                    "A area precisa de um nome"
-            );
+                    "A area precisa de um nome");
         }
 
         this.nome = nome;
@@ -86,8 +84,7 @@ public class AreaOperacao {
     public void setTipoTerreno(TipoTerreno tipoTerreno) {
         if (tipoTerreno == null) {
             throw new IllegalArgumentException(
-                    "A area precisa de um tipo de terreno"
-            );
+                    "A area precisa de um tipo de terreno");
         }
 
         this.tipoTerreno = tipoTerreno;
