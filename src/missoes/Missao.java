@@ -1,11 +1,13 @@
 package missoes;
+
 import ambiente.AreaOperacao;
 import robos.Robo;
 import enums.TipoMissao;
 import enums.PrioridadeMissao;
 import enums.StatusMissao;
+import java.io.Serializable;
 
-public class Missao {
+public class Missao implements Serializable {
     private int id;
     private String descricao;
     private TipoMissao tipo;
@@ -15,12 +17,12 @@ public class Missao {
     private Robo roboResponsavel;
     private String resultado;
 
-    public Missao( int id, String descricao, TipoMissao tipo, AreaOperacao area, PrioridadeMissao prioridade){
+    public Missao(int id, String descricao, TipoMissao tipo, AreaOperacao area, PrioridadeMissao prioridade) {
 
-        if(id<=0){
+        if (id <= 0) {
             throw new IllegalArgumentException("ID invalido");
         }
-        if(descricao==null){
+        if (descricao == null) {
             throw new IllegalArgumentException("Descricao invalida");
         }
         if (tipo == null || area == null || prioridade == null) {
@@ -35,6 +37,7 @@ public class Missao {
         this.roboResponsavel = null;
         this.resultado = null;
     }
+
     public int getId() {
         return id;
     }
@@ -67,44 +70,48 @@ public class Missao {
         return resultado;
     }
 
-    public void atribuirRobo(Robo robo){
-        if(robo == null){
+    public void atribuirRobo(Robo robo) {
+        if (robo == null) {
             throw new IllegalArgumentException("Robo invalido");
         }
-        if(status!=StatusMissao.PENDENTE){
+        if (status != StatusMissao.PENDENTE) {
             throw new IllegalStateException("Missao nao esta pendente");
         }
-        if(roboResponsavel!=null){
+        if (roboResponsavel != null) {
             throw new IllegalStateException("Missao ja possui um robo");
         }
-        this.roboResponsavel=robo; //robo vira o responsavel
+        this.roboResponsavel = robo; // robo vira o responsavel
     }
-    public void iniciar(){
-        if(status!=StatusMissao.PENDENTE){
+
+    public void iniciar() {
+        if (status != StatusMissao.PENDENTE) {
             throw new IllegalStateException("Nao e possivel inicar missoes concluidas ou canceladas");
         }
-        if(roboResponsavel==null){
+        if (roboResponsavel == null) {
             throw new IllegalArgumentException("Missao nao pode ser inicada sem robo atribuido");
         }
-        this.status=StatusMissao.EM_ANDAMENTO; //missao passa a estar em andamento
+        this.status = StatusMissao.EM_ANDAMENTO; // missao passa a estar em andamento
     }
-    public void concluir(String resultado){
-        if(status!=StatusMissao.EM_ANDAMENTO){
+
+    public void concluir(String resultado) {
+        if (status != StatusMissao.EM_ANDAMENTO) {
             throw new IllegalStateException("Missao deve estar em andamento");
         }
-        if(resultado==null){
+        if (resultado == null) {
             throw new IllegalArgumentException("Resultado deve ser registrado");
         }
-        this.resultado=resultado;
-        this.status=StatusMissao.CONCLUIDA;
+        this.resultado = resultado;
+        this.status = StatusMissao.CONCLUIDA;
     }
-    public void cancelar(){
-        if(status==StatusMissao.CONCLUIDA || status==StatusMissao.CANCELADA){
+
+    public void cancelar() {
+        if (status == StatusMissao.CONCLUIDA || status == StatusMissao.CANCELADA) {
             throw new IllegalStateException("Nao e possivel cancelar missoes concluidas ou canceladas");
         }
-        this.status=StatusMissao.CANCELADA;
+        this.status = StatusMissao.CANCELADA;
     }
-    public void exibirResumo(){
+
+    public void exibirResumo() {
         System.out.println("ID: " + id);
         System.out.println("Descricao: " + descricao);
         System.out.println("Tipo: " + tipo);
@@ -122,9 +129,5 @@ public class Missao {
             System.out.println("Resultado: Ainda nao disponivel");
         }
     }
-
-
-
-
 
 }
