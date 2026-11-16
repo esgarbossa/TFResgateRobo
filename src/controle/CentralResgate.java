@@ -123,4 +123,120 @@ public class CentralResgate {
         Relatorio relatorio = new Relatorio(robos.size(), missoes);
         System.out.println(relatorio.gerarResumo());
     }
+    public void iniciarMissao(int idMissao) {
+        Missao missaoEncontrada = null;
+        for (int i = 0; i < missoes.size(); i++) {
+            if (missoes.get(i).getId() == idMissao) {
+                missaoEncontrada = missoes.get(i);
+                break;
+            }
+        }
+        if (missaoEncontrada == null) {
+            throw new IllegalArgumentException("Missao nao encontrada");
+        }
+        if (missaoEncontrada.getStatus() != StatusMissao.PENDENTE) {
+            throw new IllegalStateException("Missao nao esta pendente");
+        }
+        if (missaoEncontrada.getRoboResponsavel() == null) {
+            throw new IllegalStateException("Missao nao possui robo atribuido");
+        }
+        Robo robo = missaoEncontrada.getRoboResponsavel();
+        if (robo.getStatus() != StatusRobo.EM_MISSAO) {
+            throw new IllegalStateException("Robo nao esta reservado para a missao");
+        }
+        missaoEncontrada.iniciar();
+    }
+    public void concluirMissao(int idMissao, String resultado) {
+        Missao missaoEncontrada = null;
+        for (int i = 0; i < missoes.size(); i++) {
+            if (missoes.get(i).getId() == idMissao) {
+                missaoEncontrada = missoes.get(i);
+                break;
+            }
+        }
+        if (missaoEncontrada == null) {
+            throw new IllegalArgumentException("Missao nao encontrada");
+        }
+        if (missaoEncontrada.getStatus() != StatusMissao.EM_ANDAMENTO) {
+            throw new IllegalStateException("Missao nao esta em andamento");
+        }
+        Robo robo = missaoEncontrada.getRoboResponsavel();
+        if (robo == null) {
+            throw new IllegalStateException("Missao nao possui robo");
+        }
+        missaoEncontrada.concluir(resultado);
+        robo.setStatus(StatusRobo.DISPONIVEL);
+    }
+    public void cancelarMissao(int idMissao) {
+        Missao missaoEncontrada = null;
+        for (int i = 0; i < missoes.size(); i++) {
+            if (missoes.get(i).getId() == idMissao) {
+                missaoEncontrada = missoes.get(i);
+                break;
+            }
+        }
+        if (missaoEncontrada == null) {
+            throw new IllegalArgumentException("Missao nao encontrada");
+        }
+        if (missaoEncontrada.getStatus() == StatusMissao.CONCLUIDA ||
+                missaoEncontrada.getStatus() == StatusMissao.CANCELADA) {
+            throw new IllegalStateException("Missao ja foi encerrada");
+        }
+        Robo robo = missaoEncontrada.getRoboResponsavel();
+        missaoEncontrada.cancelar();
+        if (robo != null) {
+            robo.setStatus(StatusRobo.DISPONIVEL);
+        }
+        missoesPendentes.remove(missaoEncontrada);
+    }
+
+    public Robo recomendarRobo(int idMissao) { //funcionalidade inovadora
+
+        Missao missaoEncontrada = null;
+        for (int i = 0; i < missoes.size(); i++) {
+            if (missoes.get(i).getId() == idMissao) {
+                missaoEncontrada = missoes.get(i);
+                break;
+            }
+        }
+        if (missaoEncontrada == null) {
+            throw new IllegalArgumentException("ID nao encontrado");
+        }
+        if (missaoEncontrada.getStatus() != StatusMissao.PENDENTE) {
+            throw new IllegalStateException("A missao nao esta pendente");
+        }
+        if (missaoEncontrada.getRoboResponsavel() != null) {
+            throw new IllegalStateException("Missao ja possui robo");
+        }
+
+        Robo melhorRobo = null;
+        double melhorBateriaRestante = -1;
+
+        for (Robo robo : robos.values()) {
+            if (robo.getStatus() == StatusRobo.DISPONIVEL) {
+                if (robo.compativelCom(
+                        missaoEncontrada.getTipo(),
+                        missaoEncontrada.getArea().getTipoTerreno())) {
+                    double consumo = robo.calcularConsumo(
+                            missaoEncontrada.getTipo(),
+                            missaoEncontrada.getArea().getTipoTerreno(),
+                            missaoEncontrada.getArea().getNivelRisco()
+                    );
+                    if (robo.getNivelBateria() >= consumo) {
+
+                        double bateriaRestante = robo.getNivelBateria() - consumo;
+
+                        if (melhorRobo == null || bateriaRestante > melhorBateriaRestante ||
+                                (bateriaRestante == melhorBateriaRestante && robo.getMissoesRealizadas() > melhorRobo.getMissoesRealizadas())) {
+
+                            melhorRobo = robo;
+                            melhorBateriaRestante = bateriaRestante;
+                        }
+                    }
+                }
+            }
+        }
+
+        return melhorRobo;
+    }
 }
