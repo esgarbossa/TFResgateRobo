@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.io.IOException;
 import java.io.Serializable;
 
 public class CentralResgate implements Serializable {
@@ -259,5 +260,35 @@ public class CentralResgate implements Serializable {
         }
 
         return area;
+    }
+
+    // Criei esse pra conseguir salvar o relatorio!
+    public void salvarRelatorio(String nomeArquivo) throws IOException {
+        Relatorio relatorio = new Relatorio(robos.size(), missoes);
+        relatorio.salvarEmArquivo(nomeArquivo);
+    }
+
+    // Criei esses métodos de baixo para retornar as listas e eu conseguir criar as
+    // consultas
+    public ArrayList<Robo> listarTodosRobos() {
+        return new ArrayList<>(robos.values());
+    }
+
+    public ArrayList<AreaOperacao> listarAreas() {
+        return new ArrayList<>(areas.values());
+    }
+
+    public ArrayList<Missao> listarMissoes() {
+        return new ArrayList<>(missoes);
+    }
+
+    public Robo buscarRobo(int id) {
+        Robo robo = robos.get(id);
+
+        if (robo == null) {
+            throw new IllegalArgumentException("Robo nao encontrado");
+        }
+
+        return robo;
     }
 }
