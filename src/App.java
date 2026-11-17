@@ -13,6 +13,7 @@ import enums.PrioridadeMissao;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 
 public class App {
     private Scanner sc;
@@ -28,8 +29,7 @@ public class App {
     private void cadastrarArea() {
         try {
             System.out.println("ID: ");
-            int id = sc.nextInt();
-            sc.nextLine();
+            int id = lerInt();
 
             System.out.println("Nome: ");
             String nome = sc.nextLine();
@@ -45,8 +45,7 @@ public class App {
             System.out.println("2 - Alagado");
             System.out.println("3 - Irregular");
 
-            int opcaoTerreno = sc.nextInt();
-            sc.nextLine();
+            int opcaoTerreno = lerInt();
 
             TipoTerreno terreno;
             switch (opcaoTerreno) {
@@ -71,8 +70,7 @@ public class App {
             System.out.println("2 - Medio");
             System.out.println("3 - Alto");
 
-            int opcaoRisco = sc.nextInt();
-            sc.nextLine();
+            int opcaoRisco = lerInt();
 
             NivelRisco risco;
             switch (opcaoRisco) {
@@ -105,35 +103,30 @@ public class App {
     private void cadastrarRobo() {
         try {
             System.out.println("ID: ");
-            int id = sc.nextInt();
-            sc.nextLine();
+            int id = lerInt();
 
             System.out.println("Nome: ");
             String nome = sc.nextLine();
 
             System.out.println("Nivel de bateria: ");
-            double bateria = sc.nextDouble();
-            sc.nextLine();
+            double bateria = lerDouble();
 
             System.out.println("Tipo de robo: ");
             System.out.println("1 - Drone");
             System.out.println("2 - Robo terrestre;");
 
-            int tipo = sc.nextInt();
-            sc.nextLine();
+            int tipo = lerInt();
 
             Robo robo;
 
             if (tipo == 1) {
                 System.out.println("Alcance maximo: ");
-                double alcance = sc.nextDouble();
-                sc.nextLine();
+                double alcance = lerDouble();
 
                 robo = new Drone(id, 0, nome, bateria, StatusRobo.DISPONIVEL, alcance);
             } else if (tipo == 2) {
                 System.out.println("Capacidade de carga: ");
-                double capacidade = sc.nextDouble();
-                sc.nextLine();
+                double capacidade = lerDouble();
 
                 robo = new RoboTerrestre(id, 0, nome, bateria, StatusRobo.DISPONIVEL, capacidade);
             } else {
@@ -151,25 +144,21 @@ public class App {
     private void cadastrarMissao() {
         try {
             System.out.println("ID: ");
-            int id = sc.nextInt();
-            sc.nextLine();
+            int id = lerInt();
 
             System.out.println("Descricao: ");
             String descricao = sc.nextLine();
 
             System.out.println("ID da area: ");
-            int idArea = sc.nextInt();
-            sc.nextLine();
-
+            int idArea = lerInt();
             AreaOperacao area = central.buscarArea(idArea);
 
             System.out.println("Tipo de missao: ");
             System.out.println("1 - Reconhecimento");
             System.out.println("2 - Localizacao de pessoas");
-            System.out.println("3 = Transporte de suprimentos");
+            System.out.println("3 - Transporte de suprimentos");
 
-            int opcaoTipo = sc.nextInt();
-            sc.nextLine();
+            int opcaoTipo = lerInt();
 
             TipoMissao tipo;
 
@@ -195,8 +184,7 @@ public class App {
             System.out.println("2 - Media");
             System.out.println("3 - Alta");
 
-            int opcaoPrioridade = sc.nextInt();
-            sc.nextLine();
+            int opcaoPrioridade = lerInt();
 
             PrioridadeMissao prioridade;
 
@@ -217,11 +205,184 @@ public class App {
                     throw new IllegalArgumentException("Prioridade invalida.");
             }
 
-            Missao missao = new Missao(opcaoPrioridade, descricao, tipo, area, prioridade);
+            Missao missao = new Missao(id, descricao, tipo, area, prioridade);
             central.registrarMissao(missao);
             System.out.println("Missao cadastrada com sucesso.");
         } catch (IllegalArgumentException e) {
             System.out.println("Erro em cadastrar missao: " + e.getMessage());
+        }
+    }
+
+    private void atribuirRobo() {
+        try {
+            System.out.println("ID da missao: ");
+            int idMissao = lerInt();
+
+            System.out.println("ID do robo: ");
+            int idRobo = lerInt();
+
+            central.atribuirRoboMissao(idMissao, idRobo);
+
+            System.out.println("Robo atribuido com sucesso.");
+        } catch (IllegalArgumentException | IllegalStateException e) {
+            System.out.println("Erro ao atribuir robo: " + e.getMessage());
+        }
+    }
+
+    private void recomendarRobo() {
+        try {
+            System.out.println("ID da missao: ");
+            int idMissao = lerInt();
+
+            Robo robo = central.recomendarRobo(idMissao);
+
+            if (robo == null) {
+                System.out.println("Nenhum robo compativel disponivel.");
+            } else {
+                System.out.println("Robo recomendado: ");
+                robo.exibirResumo();
+            }
+        } catch (IllegalArgumentException | IllegalStateException e) {
+            System.out.println("Erro ao recomendar robo: " + e.getMessage());
+        }
+    }
+
+    private void iniciarMissao() {
+        try {
+            System.out.println("ID da missao: ");
+            int idMissao = lerInt();
+
+            central.iniciarMissao(idMissao);
+
+            System.out.println("Missao iniciada com sucesso.");
+        } catch (IllegalArgumentException | IllegalStateException e) {
+            System.out.println("Erro ao iniciar missao: " + e.getMessage());
+        }
+    }
+
+    private void concluirMissao() {
+        try {
+            System.out.println("ID da missao: ");
+            int idMissao = lerInt();
+
+            System.out.println("Resultado da missao: ");
+            String resultado = sc.nextLine();
+
+            central.concluirMissao(idMissao, resultado);
+
+            System.out.println("Missao concluida com sucesso.");
+        } catch (IllegalArgumentException | IllegalStateException e) {
+            System.out.println("Erro ao concluir missao: " + e.getMessage());
+        }
+    }
+
+    private void cancelarMissao() {
+        try {
+            System.out.println("ID da missao: ");
+            int idMissao = lerInt();
+
+            central.cancelarMissao(idMissao);
+
+            System.out.println("Missao cancelada.");
+        } catch (IllegalArgumentException | IllegalStateException e) {
+            System.out.println("Erro ao cancelar missao: " + e.getMessage());
+        }
+    }
+
+    private void consultarRobos() {
+        ArrayList<Robo> robos = central.listarTodosRobos();
+
+        if (robos.isEmpty()) {
+            System.out.println("Nenhum robo cadastrado.");
+        } else {
+            for (Robo robo : robos) {
+                robo.exibirResumo();
+                System.out.println();
+            }
+        }
+    }
+
+    private void consultarAreas() {
+        ArrayList<AreaOperacao> areas = central.listarAreas();
+
+        if (areas.isEmpty()) {
+            System.out.println("Nenhuma area cadastrada.");
+        } else {
+            for (AreaOperacao area : areas) {
+                area.exibirInformacoes();
+                System.out.println();
+            }
+        }
+    }
+
+    private void consultarMissoes() {
+        ArrayList<Missao> missoes = central.listarMissoes();
+
+        if (missoes.isEmpty()) {
+            System.out.println("Nenhuma missao cadastrada.");
+        } else {
+            for (Missao missao : missoes) {
+                missao.exibirResumo();
+                System.out.println();
+            }
+        }
+    }
+
+    private void recarregarRobo() {
+        try {
+            System.out.println("ID do robo: ");
+            int idRobo = lerInt();
+
+            Robo robo = central.buscarRobo(idRobo);
+
+            robo.recarregar();
+
+            System.out.println("Robo recarregado com sucesso.");
+        } catch (IllegalArgumentException | IllegalStateException e) {
+            System.out.println("Erro: " + e.getMessage());
+        }
+    }
+
+    private void salvarRelatorio() {
+        try {
+            System.out.println("Nome do arquivo: ");
+            String nomeArquivo = sc.nextLine();
+
+            if (!nomeArquivo.endsWith(".txt")) {
+                nomeArquivo += ".txt";
+            }
+
+            central.salvarRelatorio(nomeArquivo);
+
+            System.out.println("Relatorio salvo com sucesso.");
+        } catch (Exception e) {
+            System.out.println("Erro ao salvar relatorio: " + e.getMessage());
+        }
+    }
+
+    private int lerInt() {
+        while (true) {
+            try {
+                int valor = sc.nextInt();
+                sc.nextLine();
+                return valor;
+            } catch (InputMismatchException e) {
+                System.out.println("Digite um numero inteiro valido.");
+                sc.nextLine();
+            }
+        }
+    }
+
+    private double lerDouble() {
+        while (true) {
+            try {
+                double valor = sc.nextDouble();
+                sc.nextLine();
+                return valor;
+            } catch (InputMismatchException e) {
+                System.out.println("Digite um numero valido.");
+                sc.nextLine();
+            }
         }
     }
 
@@ -236,11 +397,20 @@ public class App {
             System.out.println("4 - Cadastrar area");
             System.out.println("5 - Cadastrar robo");
             System.out.println("6 - Cadastrar missao");
+            System.out.println("7 - Atribuir robo a missao");
+            System.out.println("8 - Recomendar robo");
+            System.out.println("9 - Iniciar missao");
+            System.out.println("10 - Concluir missao");
+            System.out.println("11 - Cancelar missao");
+            System.out.println("12 - Consultar todos os robos");
+            System.out.println("13 - Consultar areas");
+            System.out.println("14 - Consultar todas as missoes");
+            System.out.println("15 - Recarregar robo");
+            System.out.println("16 - Salvar relatorio em arquivo");
             System.out.println("0 - Sair");
             System.out.print("Escolha uma opcao: ");
 
-            opcao = sc.nextInt();
-            sc.nextLine();
+            opcao = lerInt();
 
             switch (opcao) {
                 case 1:
@@ -274,6 +444,46 @@ public class App {
 
                 case 6:
                     cadastrarMissao();
+                    break;
+
+                case 7:
+                    atribuirRobo();
+                    break;
+
+                case 8:
+                    recomendarRobo();
+                    break;
+
+                case 9:
+                    iniciarMissao();
+                    break;
+
+                case 10:
+                    concluirMissao();
+                    break;
+
+                case 11:
+                    cancelarMissao();
+                    break;
+
+                case 12:
+                    consultarRobos();
+                    break;
+
+                case 13:
+                    consultarAreas();
+                    break;
+
+                case 14:
+                    consultarMissoes();
+                    break;
+
+                case 15:
+                    recarregarRobo();
+                    break;
+
+                case 16:
+                    salvarRelatorio();
                     break;
 
                 case 0:
