@@ -183,6 +183,7 @@ public class App {
             System.out.println("1 - Baixa");
             System.out.println("2 - Media");
             System.out.println("3 - Alta");
+            System.out.println("4 - Urgente");
 
             int opcaoPrioridade = lerInt();
 
@@ -199,6 +200,10 @@ public class App {
 
                 case 3:
                     prioridade = PrioridadeMissao.ALTA;
+                    break;
+
+                case 4:
+                    prioridade = PrioridadeMissao.URGENTE;
                     break;
 
                 default:
@@ -265,10 +270,7 @@ public class App {
             System.out.println("ID da missao: ");
             int idMissao = lerInt();
 
-            System.out.println("Resultado da missao: ");
-            String resultado = sc.nextLine();
-
-            central.concluirMissao(idMissao, resultado);
+            central.concluirMissao(idMissao);
 
             System.out.println("Missao concluida com sucesso.");
         } catch (IllegalArgumentException | IllegalStateException e) {
@@ -360,6 +362,33 @@ public class App {
         }
     }
 
+    private void atualizarRisco() {
+        try {
+            System.out.println("ID da area: ");
+            AreaOperacao area = central.buscarArea(lerInt());
+            System.out.println("Risco: 1 - Baixo, 2 - Medio, 3 - Alto");
+            int risco = lerInt();
+            if (risco < 1 || risco > 3) {
+                throw new IllegalArgumentException("Nivel de risco invalido");
+            }
+            area.atualizarNivelRisco(NivelRisco.values()[risco - 1]);
+            System.out.println("Risco atualizado com sucesso.");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Erro ao atualizar risco: " + e.getMessage());
+        }
+    }
+
+    private void enviarInstrucao() {
+        try {
+            System.out.println("ID do robo: ");
+            Robo robo = central.buscarRobo(lerInt());
+            System.out.println("Mensagem: ");
+            robo.receberMensagem(sc.nextLine());
+        } catch (IllegalArgumentException e) {
+            System.out.println("Erro ao enviar mensagem: " + e.getMessage());
+        }
+    }
+
     private int lerInt() {
         while (true) {
             try {
@@ -400,13 +429,15 @@ public class App {
             System.out.println("7 - Atribuir robo a missao");
             System.out.println("8 - Recomendar robo");
             System.out.println("9 - Iniciar missao");
-            System.out.println("10 - Concluir missao");
+            System.out.println("10 - Executar e concluir missao");
             System.out.println("11 - Cancelar missao");
             System.out.println("12 - Consultar todos os robos");
             System.out.println("13 - Consultar areas");
             System.out.println("14 - Consultar todas as missoes");
             System.out.println("15 - Recarregar robo");
             System.out.println("16 - Salvar relatorio em arquivo");
+            System.out.println("17 - Atualizar risco de uma area");
+            System.out.println("18 - Enviar mensagem a um robo");
             System.out.println("0 - Sair");
             System.out.print("Escolha uma opcao: ");
 
@@ -484,6 +515,14 @@ public class App {
 
                 case 16:
                     salvarRelatorio();
+                    break;
+
+                case 17:
+                    atualizarRisco();
+                    break;
+
+                case 18:
+                    enviarInstrucao();
                     break;
 
                 case 0:

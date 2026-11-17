@@ -16,12 +16,17 @@ public class Main {
             central = new CentralResgate("Central de Resgate");
             System.out.println("Nenhum arquivo encontrado. Nova central criada.");
         } catch (IOException | ClassNotFoundException e) {
-            System.out.println("Erro ao carregar dados salvos.");
-            central = new CentralResgate("Central de Resgate");
+            System.out.println("Erro ao carregar dados salvos: " + e.getMessage());
+            System.out.println("Arquivo preservado. Corrija-o ou restaure central.dat.bak antes de continuar.");
+            return;
         }
 
         App app = new App(central, persistencia);
-        app.executar();
+        try {
+            app.executar();
+        } catch (java.util.NoSuchElementException e) {
+            System.out.println("Entrada encerrada. Salvando os dados confirmados.");
+        }
 
         try {
             persistencia.salvar(central);

@@ -1,0 +1,188 @@
+Dados carregados com sucesso.
+
+=== CENTRAL DE RESGATE ===
+1 - Listar robos disponiveis
+2 - Listar missoes pendentes
+3 - Gerar relatorio
+4 - Cadastrar area
+5 - Cadastrar robo
+6 - Cadastrar missao
+7 - Atribuir robo a missao
+8 - Recomendar robo
+9 - Iniciar missao
+10 - Executar e concluir missao
+11 - Cancelar missao
+12 - Consultar todos os robos
+13 - Consultar areas
+14 - Consultar todas as missoes
+15 - Recarregar robo
+16 - Salvar relatorio em arquivo
+17 - Atualizar risco de uma area
+18 - Enviar mensagem a um robo
+0 - Sair
+Escolha uma opcao: ID da missao: 
+Erro ao iniciar missao: Missao nao possui robo atribuido
+
+=== CENTRAL DE RESGATE ===
+1 - Listar robos disponiveis
+2 - Listar missoes pendentes
+3 - Gerar relatorio
+4 - Cadastrar area
+5 - Cadastrar robo
+6 - Cadastrar missao
+7 - Atribuir robo a missao
+8 - Recomendar robo
+9 - Iniciar missao
+10 - Executar e concluir missao
+11 - Cancelar missao
+12 - Consultar todos os robos
+13 - Consultar areas
+14 - Consultar todas as missoes
+15 - Recarregar robo
+16 - Salvar relatorio em arquivo
+17 - Atualizar risco de uma area
+18 - Enviar mensagem a um robo
+0 - Sair
+Escolha uma opcao: ID da missao: 
+ID do robo: 
+Erro ao atribuir robo: Robo nao encontrado
+
+=== CENTRAL DE RESGATE ===
+1 - Listar robos disponiveis
+2 - Listar missoes pendentes
+3 - Gerar relatorio
+4 - Cadastrar area
+5 - Cadastrar robo
+6 - Cadastrar missao
+7 - Atribuir robo a missao
+8 - Recomendar robo
+9 - Iniciar missao
+10 - Executar e concluir missao
+11 - Cancelar missao
+12 - Consultar todos os robos
+13 - Consultar areas
+14 - Consultar todas as missoes
+15 - Recarregar robo
+16 - Salvar relatorio em arquivo
+17 - Atualizar risco de uma area
+18 - Enviar mensagem a um robo
+0 - Sair
+Escolha uma opcao: ID da missao: 
+Erro ao concluir missao: Missao nao esta em andamento
+
+=== CENTRAL DE RESGATE ===
+1 - Listar robos disponiveis
+2 - Listar missoes pendentes
+3 - Gerar relatorio
+4 - Cadastrar area
+5 - Cadastrar robo
+6 - Cadastrar missao
+7 - Atribuir robo a missao
+8 - Recomendar robo
+9 - Iniciar missao
+10 - Executar e concluir missao
+11 - Cancelar missao
+12 - Consultar todos os robos
+13 - Consultar areas
+14 - Consultar todas as missoes
+15 - Recarregar robo
+16 - Salvar relatorio em arquivo
+17 - Atualizar risco de uma area
+18 - Enviar mensagem a um robo
+0 - Sair
+Escolha uma opcao: ID da missao: 
+Missao cancelada.
+
+=== CENTRAL DE RESGATE ===
+1 - Listar robos disponiveis
+2 - Listar missoes pendentes
+3 - Gerar relatorio
+4 - Cadastrar area
+5 - Cadastrar robo
+6 - Cadastrar missao
+7 - Atribuir robo a missao
+8 - Recomendar robo
+9 - Iniciar missao
+10 - Executar e concluir missao
+11 - Cancelar missao
+12 - Consultar todos os robos
+13 - Consultar areas
+14 - Consultar todas as missoes
+15 - Recarregar robo
+16 - Salvar relatorio em arquivo
+17 - Atualizar risco de uma area
+18 - Enviar mensagem a um robo
+0 - Sair
+Escolha uma opcao: ID da missao: 
+Erro ao iniciar missao: Missao nao esta pendente
+
+=== CENTRAL DE RESGATE ===
+1 - Listar robos disponiveis
+2 - Listar missoes pendentes
+3 - Gerar relatorio
+4 - Cadastrar area
+5 - Cadastrar robo
+6 - Cadastrar missao
+7 - Atribuir robo a missao
+8 - Recomendar robo
+9 - Iniciar missao
+10 - Executar e concluir missao
+11 - Cancelar missao
+12 - Consultar todos os robos
+13 - Consultar areas
+14 - Consultar todas as missoes
+15 - Recarregar robo
+16 - Salvar relatorio em arquivo
+17 - Atualizar risco de uma area
+18 - Enviar mensagem a um robo
+0 - Sair
+Escolha uma opcao: ID da area: 
+Risco: 1 - Baixo, 2 - Medio, 3 - Alto
+Risco atualizado com sucesso.
+
+=== CENTRAL DE RESGATE ===
+1 - Listar robos disponiveis
+2 - Listar missoes pendentes
+3 - Gerar relatorio
+4 - Cadastrar area
+5 - Cadastrar robo
+6 - Cadastrar missao
+7 - Atribuir robo a missao
+8 - Recomendar robo
+9 - Iniciar missao
+10 - Executar e concluir missao
+11 - Cancelar missao
+12 - Consultar todos os robos
+13 - Consultar areas
+14 - Consultar todas as missoes
+15 - Recarregar robo
+16 - Salvar relatorio em arquivo
+17 - Atualizar risco de uma area
+18 - Enviar mensagem a um robo
+0 - Sair
+Escolha uma opcao: ID do robo: 
+Mensagem: 
+Robo Drone demonstracao recebeu: Aguardar instrucao
+
+=== CENTRAL DE RESGATE ===
+1 - Listar robos disponiveis
+2 - Listar missoes pendentes
+3 - Gerar relatorio
+4 - Cadastrar area
+5 - Cadastrar robo
+6 - Cadastrar missao
+7 - Atribuir robo a missao
+8 - Recomendar robo
+9 - Iniciar missao
+10 - Executar e concluir missao
+11 - Cancelar missao
+12 - Consultar todos os robos
+13 - Consultar areas
+14 - Consultar todas as missoes
+15 - Recarregar robo
+16 - Salvar relatorio em arquivo
+17 - Atualizar risco de uma area
+18 - Enviar mensagem a um robo
+0 - Sair
+Escolha uma opcao: Encerrando...
+Dados salvos com sucesso.

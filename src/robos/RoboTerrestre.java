@@ -4,6 +4,7 @@ import enums.NivelRisco;
 import enums.StatusRobo;
 import enums.TipoMissao;
 import enums.TipoTerreno;
+import missoes.Missao;
 
 public class RoboTerrestre extends Robo {
     private double capacidadeCarga;
@@ -26,8 +27,24 @@ public class RoboTerrestre extends Robo {
     }
 
     @Override
-    public void executarMissao() {
+    public String executarMissao(Missao missao) {
+        double consumo = validarExecucao(missao);
+        TipoMissao tipo = missao.getTipo();
+        enviarMensagem("Iniciando missao: " + tipo);
 
+        String resultado;
+
+        if (tipo == TipoMissao.TRANSPORTE_DE_SUPRIMENTOS) {
+            resultado = "Transporte concluido: "
+                    + "suprimentos entregues na area.";
+        } else {
+            resultado = "Busca terrestre concluida: "
+                    + "varredura para localizacao de pessoas realizada.";
+        }
+
+        finalizarExecucao(missao, consumo);
+        enviarMensagem(resultado);
+        return resultado;
     }
 
     @Override

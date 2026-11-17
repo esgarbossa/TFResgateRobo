@@ -1,0 +1,111 @@
+classDiagram
+direction TB
+class Comunicavel {
+  <<interface>>
+  +enviarMensagem(String) void
+  +receberMensagem(String) void
+}
+class Robo {
+  <<abstract>>
+  -int id
+  -String nome
+  -double nivelBateria
+  -StatusRobo status
+  -int missoesRealizadas
+  -Set~Integer~ missoesExecutadas
+  +verificarDisponibilidade() boolean
+  +consultarBateria() double
+  +recarregar() void
+  +exibirResumo() void
+  +executarMissao(Missao)* String
+  +compativelCom(TipoMissao, TipoTerreno)* boolean
+  +calcularConsumo(TipoMissao, TipoTerreno, NivelRisco)* double
+}
+class Drone {
+  -double alcanceMaximo
+  +executarMissao(Missao) String
+  +compativelCom(TipoMissao, TipoTerreno) boolean
+  +calcularConsumo(TipoMissao, TipoTerreno, NivelRisco) double
+}
+class RoboTerrestre {
+  -double capacidadeCarga
+  +executarMissao(Missao) String
+  +compativelCom(TipoMissao, TipoTerreno) boolean
+  +calcularConsumo(TipoMissao, TipoTerreno, NivelRisco) double
+}
+class AreaOperacao {
+  -int id
+  -String nome
+  -String localizacao
+  -TipoTerreno tipoTerreno
+  -NivelRisco nivelRisco
+  -String descricao
+  +atualizarNivelRisco(NivelRisco) void
+  +exibirInformacoes() void
+}
+class Missao {
+  -int id
+  -String descricao
+  -TipoMissao tipo
+  -PrioridadeMissao prioridade
+  -StatusMissao status
+  -String resultado
+  +atribuirRobo(Robo) void
+  +iniciar() void
+  +concluir(String) void
+  +cancelar() void
+  +exibirResumo() void
+}
+class CentralResgate {
+  -String nome
+  -HashMap~Integer,Robo~ robos
+  -HashMap~Integer,AreaOperacao~ areas
+  -ArrayList~Missao~ missoes
+  -Queue~Missao~ missoesPendentes
+  +cadastrarRobo(Robo) void
+  +cadastrarArea(AreaOperacao) void
+  +registrarMissao(Missao) void
+  +atribuirRoboMissao(int,int) void
+  +iniciarMissao(int) void
+  +concluirMissao(int) void
+  +cancelarMissao(int) void
+  +recomendarRobo(int) Robo
+  +gerarRelatorioGeral() void
+}
+class Relatorio {
+  -LocalDateTime dataGeracao
+  -int totalRobos
+  -int totalMissoes
+  -long missoesConcluidas
+  -long missoesPendentes
+  +gerarResumo() String
+  +salvarEmArquivo(String) void
+}
+class PersistenciaArquivo {
+  -Path arquivo
+  +salvar(CentralResgate) void
+  +carregar() CentralResgate
+}
+class App {
+  -Scanner sc
+  -CentralResgate central
+  -PersistenciaArquivo persistencia
+  +executar() void
+}
+class Main {
+  +main(String[]) void
+}
+Comunicavel <|.. Robo
+Robo <|-- Drone
+Robo <|-- RoboTerrestre
+Missao "0..*" --> "1" AreaOperacao : area
+Missao "0..*" --> "0..1" Robo : responsavel
+CentralResgate "1" --> "0..*" Robo : cadastra
+CentralResgate "1" --> "0..*" AreaOperacao : cadastra
+CentralResgate "1" --> "0..*" Missao : coordena
+CentralResgate ..> Relatorio : gera
+PersistenciaArquivo ..> CentralResgate : salva e recupera
+App --> CentralResgate : opera
+Main ..> App : inicia
+Main ..> PersistenciaArquivo : utiliza
+Relatorio ..> Missao : calcula indicadores

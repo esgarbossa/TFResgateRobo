@@ -24,7 +24,7 @@ public class CentralResgate implements Serializable {
 
     public CentralResgate(String nome) {
 
-        if (nome == null) {
+        if (nome == null || nome.isBlank()) {
             throw new IllegalArgumentException("Nome invalido");
         }
 
@@ -67,7 +67,7 @@ public class CentralResgate implements Serializable {
         if (missao.getStatus() != StatusMissao.PENDENTE || missao.getRoboResponsavel() != null) {
             throw new IllegalArgumentException("Missao deve estar pendente e sem robo");
         }
-        if (!areas.containsKey(missao.getArea().getId())) {
+        if (areas.get(missao.getArea().getId()) != missao.getArea()) {
             throw new IllegalArgumentException("Area nao cadastrada");
         }
         missoes.add(missao);
@@ -77,7 +77,7 @@ public class CentralResgate implements Serializable {
     public ArrayList<Robo> listarRobosDisponiveis() {
         ArrayList<Robo> disponiveis = new ArrayList<>();
         for (Robo robo : robos.values()) {
-            if (robo.getStatus() == StatusRobo.DISPONIVEL) {
+            if (robo.verificarDisponibilidade()) {
                 disponiveis.add(robo);
             }
         }
@@ -118,7 +118,7 @@ public class CentralResgate implements Serializable {
         }
         missaoEncontrada.atribuirRobo(robo);
         robo.setStatus(StatusRobo.EM_MISSAO);
-        missoesPendentes.remove(missaoEncontrada);
+        robo.receberMensagem("Atribuido a missao " + idMissao);
     }
 
     public void listarMissoesPendentes() {
@@ -154,9 +154,11 @@ public class CentralResgate implements Serializable {
             throw new IllegalStateException("Robo nao esta reservado para a missao");
         }
         missaoEncontrada.iniciar();
+        missoesPendentes.remove(missaoEncontrada);
+        robo.receberMensagem("Iniciar missao " + idMissao);
     }
 
-    public void concluirMissao(int idMissao, String resultado) {
+    public void concluirMissao(int idMissao) {
         Missao missaoEncontrada = null;
         for (int i = 0; i < missoes.size(); i++) {
             if (missoes.get(i).getId() == idMissao) {
@@ -174,8 +176,8 @@ public class CentralResgate implements Serializable {
         if (robo == null) {
             throw new IllegalStateException("Missao nao possui robo");
         }
+        String resultado = robo.executarMissao(missaoEncontrada);
         missaoEncontrada.concluir(resultado);
-        robo.setStatus(StatusRobo.DISPONIVEL);
     }
 
     public void cancelarMissao(int idMissao) {
@@ -224,7 +226,7 @@ public class CentralResgate implements Serializable {
         double melhorBateriaRestante = -1;
 
         for (Robo robo : robos.values()) {
-            if (robo.getStatus() == StatusRobo.DISPONIVEL) {
+            if (robo.verificarDisponibilidade()) {
                 if (robo.compativelCom(
                         missaoEncontrada.getTipo(),
                         missaoEncontrada.getArea().getTipoTerreno())) {
@@ -238,7 +240,9 @@ public class CentralResgate implements Serializable {
 
                         if (melhorRobo == null || bateriaRestante > melhorBateriaRestante ||
                                 (bateriaRestante == melhorBateriaRestante
-                                        && robo.getMissoesRealizadas() > melhorRobo.getMissoesRealizadas())) {
+                                        && (robo.getMissoesRealizadas() < melhorRobo.getMissoesRealizadas()
+                                        || (robo.getMissoesRealizadas() == melhorRobo.getMissoesRealizadas()
+                                        && robo.getId() < melhorRobo.getId())))) {
 
                             melhorRobo = robo;
                             melhorBateriaRestante = bateriaRestante;

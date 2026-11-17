@@ -1,0 +1,2 @@
+Erro ao carregar dados salvos: invalid stream header: 61727175
+Arquivo preservado. Corrija-o ou restaure central.dat.bak antes de continuar.

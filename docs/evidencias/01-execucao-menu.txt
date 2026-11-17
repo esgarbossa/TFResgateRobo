@@ -1,0 +1,332 @@
+Nenhum arquivo encontrado. Nova central criada.
+
+=== CENTRAL DE RESGATE ===
+1 - Listar robos disponiveis
+2 - Listar missoes pendentes
+3 - Gerar relatorio
+4 - Cadastrar area
+5 - Cadastrar robo
+6 - Cadastrar missao
+7 - Atribuir robo a missao
+8 - Recomendar robo
+9 - Iniciar missao
+10 - Executar e concluir missao
+11 - Cancelar missao
+12 - Consultar todos os robos
+13 - Consultar areas
+14 - Consultar todas as missoes
+15 - Recarregar robo
+16 - Salvar relatorio em arquivo
+17 - Atualizar risco de uma area
+18 - Enviar mensagem a um robo
+0 - Sair
+Escolha uma opcao: Digite um numero inteiro valido.
+ID: 
+Nome: 
+Localizacao: 
+Descricao: 
+Tipo de terreno: 
+1 - Urbano
+2 - Alagado
+3 - Irregular
+Nivel de risco: 
+1 - Baixo
+2 - Medio
+3 - Alto
+Area cadastrada com sucesso.
+
+=== CENTRAL DE RESGATE ===
+1 - Listar robos disponiveis
+2 - Listar missoes pendentes
+3 - Gerar relatorio
+4 - Cadastrar area
+5 - Cadastrar robo
+6 - Cadastrar missao
+7 - Atribuir robo a missao
+8 - Recomendar robo
+9 - Iniciar missao
+10 - Executar e concluir missao
+11 - Cancelar missao
+12 - Consultar todos os robos
+13 - Consultar areas
+14 - Consultar todas as missoes
+15 - Recarregar robo
+16 - Salvar relatorio em arquivo
+17 - Atualizar risco de uma area
+18 - Enviar mensagem a um robo
+0 - Sair
+Escolha uma opcao: ID: 
+Nome: 
+Nivel de bateria: 
+Tipo de robo: 
+1 - Drone
+2 - Robo terrestre;
+Alcance maximo: 
+Robo cadastrado com sucesso.
+
+=== CENTRAL DE RESGATE ===
+1 - Listar robos disponiveis
+2 - Listar missoes pendentes
+3 - Gerar relatorio
+4 - Cadastrar area
+5 - Cadastrar robo
+6 - Cadastrar missao
+7 - Atribuir robo a missao
+8 - Recomendar robo
+9 - Iniciar missao
+10 - Executar e concluir missao
+11 - Cancelar missao
+12 - Consultar todos os robos
+13 - Consultar areas
+14 - Consultar todas as missoes
+15 - Recarregar robo
+16 - Salvar relatorio em arquivo
+17 - Atualizar risco de uma area
+18 - Enviar mensagem a um robo
+0 - Sair
+Escolha uma opcao: ID: 
+Descricao: 
+ID da area: 
+Tipo de missao: 
+1 - Reconhecimento
+2 - Localizacao de pessoas
+3 - Transporte de suprimentos
+Prioridade: 
+1 - Baixa
+2 - Media
+3 - Alta
+4 - Urgente
+Missao cadastrada com sucesso.
+
+=== CENTRAL DE RESGATE ===
+1 - Listar robos disponiveis
+2 - Listar missoes pendentes
+3 - Gerar relatorio
+4 - Cadastrar area
+5 - Cadastrar robo
+6 - Cadastrar missao
+7 - Atribuir robo a missao
+8 - Recomendar robo
+9 - Iniciar missao
+10 - Executar e concluir missao
+11 - Cancelar missao
+12 - Consultar todos os robos
+13 - Consultar areas
+14 - Consultar todas as missoes
+15 - Recarregar robo
+16 - Salvar relatorio em arquivo
+17 - Atualizar risco de uma area
+18 - Enviar mensagem a um robo
+0 - Sair
+Escolha uma opcao: ID da missao: 
+Robo recomendado: 
+id:1
+Nome: Drone demonstracao
+Nivel da bateria: 100.0
+Status: DISPONIVEL
+Missoes realizadas: 0
+
+=== CENTRAL DE RESGATE ===
+1 - Listar robos disponiveis
+2 - Listar missoes pendentes
+3 - Gerar relatorio
+4 - Cadastrar area
+5 - Cadastrar robo
+6 - Cadastrar missao
+7 - Atribuir robo a missao
+8 - Recomendar robo
+9 - Iniciar missao
+10 - Executar e concluir missao
+11 - Cancelar missao
+12 - Consultar todos os robos
+13 - Consultar areas
+14 - Consultar todas as missoes
+15 - Recarregar robo
+16 - Salvar relatorio em arquivo
+17 - Atualizar risco de uma area
+18 - Enviar mensagem a um robo
+0 - Sair
+Escolha uma opcao: ID da missao: 
+ID do robo: 
+Robo Drone demonstracao recebeu: Atribuido a missao 1
+Robo atribuido com sucesso.
+
+=== CENTRAL DE RESGATE ===
+1 - Listar robos disponiveis
+2 - Listar missoes pendentes
+3 - Gerar relatorio
+4 - Cadastrar area
+5 - Cadastrar robo
+6 - Cadastrar missao
+7 - Atribuir robo a missao
+8 - Recomendar robo
+9 - Iniciar missao
+10 - Executar e concluir missao
+11 - Cancelar missao
+12 - Consultar todos os robos
+13 - Consultar areas
+14 - Consultar todas as missoes
+15 - Recarregar robo
+16 - Salvar relatorio em arquivo
+17 - Atualizar risco de uma area
+18 - Enviar mensagem a um robo
+0 - Sair
+Escolha uma opcao: ID da missao: 
+Robo Drone demonstracao recebeu: Iniciar missao 1
+Missao iniciada com sucesso.
+
+=== CENTRAL DE RESGATE ===
+1 - Listar robos disponiveis
+2 - Listar missoes pendentes
+3 - Gerar relatorio
+4 - Cadastrar area
+5 - Cadastrar robo
+6 - Cadastrar missao
+7 - Atribuir robo a missao
+8 - Recomendar robo
+9 - Iniciar missao
+10 - Executar e concluir missao
+11 - Cancelar missao
+12 - Consultar todos os robos
+13 - Consultar areas
+14 - Consultar todas as missoes
+15 - Recarregar robo
+16 - Salvar relatorio em arquivo
+17 - Atualizar risco de uma area
+18 - Enviar mensagem a um robo
+0 - Sair
+Escolha uma opcao: ID da missao: 
+Robo Drone demonstracao enviou: Iniciando missao: RECONHECIMENTO
+Robo Drone demonstracao enviou: Reconhecimento aereo concluido: informacoes da area coletadas.
+Missao concluida com sucesso.
+
+=== CENTRAL DE RESGATE ===
+1 - Listar robos disponiveis
+2 - Listar missoes pendentes
+3 - Gerar relatorio
+4 - Cadastrar area
+5 - Cadastrar robo
+6 - Cadastrar missao
+7 - Atribuir robo a missao
+8 - Recomendar robo
+9 - Iniciar missao
+10 - Executar e concluir missao
+11 - Cancelar missao
+12 - Consultar todos os robos
+13 - Consultar areas
+14 - Consultar todas as missoes
+15 - Recarregar robo
+16 - Salvar relatorio em arquivo
+17 - Atualizar risco de uma area
+18 - Enviar mensagem a um robo
+0 - Sair
+Escolha uma opcao: id:1
+Nome: Drone demonstracao
+Nivel da bateria: 80.0
+Status: DISPONIVEL
+Missoes realizadas: 1
+
+
+=== CENTRAL DE RESGATE ===
+1 - Listar robos disponiveis
+2 - Listar missoes pendentes
+3 - Gerar relatorio
+4 - Cadastrar area
+5 - Cadastrar robo
+6 - Cadastrar missao
+7 - Atribuir robo a missao
+8 - Recomendar robo
+9 - Iniciar missao
+10 - Executar e concluir missao
+11 - Cancelar missao
+12 - Consultar todos os robos
+13 - Consultar areas
+14 - Consultar todas as missoes
+15 - Recarregar robo
+16 - Salvar relatorio em arquivo
+17 - Atualizar risco de uma area
+18 - Enviar mensagem a um robo
+0 - Sair
+Escolha uma opcao: ID: 1
+Descricao: Reconhecimento demonstracao
+Tipo: RECONHECIMENTO
+Area: Centro
+Prioridade: URGENTE
+Status: CONCLUIDA
+Robo: Drone demonstracao
+Resultado: Reconhecimento aereo concluido: informacoes da area coletadas.
+
+
+=== CENTRAL DE RESGATE ===
+1 - Listar robos disponiveis
+2 - Listar missoes pendentes
+3 - Gerar relatorio
+4 - Cadastrar area
+5 - Cadastrar robo
+6 - Cadastrar missao
+7 - Atribuir robo a missao
+8 - Recomendar robo
+9 - Iniciar missao
+10 - Executar e concluir missao
+11 - Cancelar missao
+12 - Consultar todos os robos
+13 - Consultar areas
+14 - Consultar todas as missoes
+15 - Recarregar robo
+16 - Salvar relatorio em arquivo
+17 - Atualizar risco de uma area
+18 - Enviar mensagem a um robo
+0 - Sair
+Escolha uma opcao: RELATORIO DA CENTRAL
+Data: 2026-11-17T17:00:39.371321900
+Total de robos: 1
+Total de missoes: 1
+Missoes concluidas: 1
+Missoes pendentes: 0
+
+
+=== CENTRAL DE RESGATE ===
+1 - Listar robos disponiveis
+2 - Listar missoes pendentes
+3 - Gerar relatorio
+4 - Cadastrar area
+5 - Cadastrar robo
+6 - Cadastrar missao
+7 - Atribuir robo a missao
+8 - Recomendar robo
+9 - Iniciar missao
+10 - Executar e concluir missao
+11 - Cancelar missao
+12 - Consultar todos os robos
+13 - Consultar areas
+14 - Consultar todas as missoes
+15 - Recarregar robo
+16 - Salvar relatorio em arquivo
+17 - Atualizar risco de uma area
+18 - Enviar mensagem a um robo
+0 - Sair
+Escolha uma opcao: Nome do arquivo: 
+Relatorio salvo com sucesso.
+
+=== CENTRAL DE RESGATE ===
+1 - Listar robos disponiveis
+2 - Listar missoes pendentes
+3 - Gerar relatorio
+4 - Cadastrar area
+5 - Cadastrar robo
+6 - Cadastrar missao
+7 - Atribuir robo a missao
+8 - Recomendar robo
+9 - Iniciar missao
+10 - Executar e concluir missao
+11 - Cancelar missao
+12 - Consultar todos os robos
+13 - Consultar areas
+14 - Consultar todas as missoes
+15 - Recarregar robo
+16 - Salvar relatorio em arquivo
+17 - Atualizar risco de uma area
+18 - Enviar mensagem a um robo
+0 - Sair
+Escolha uma opcao: Encerrando...
+Dados salvos com sucesso.

@@ -22,7 +22,7 @@ public class Missao implements Serializable {
         if (id <= 0) {
             throw new IllegalArgumentException("ID invalido");
         }
-        if (descricao == null) {
+        if (descricao == null || descricao.isBlank()) {
             throw new IllegalArgumentException("Descricao invalida");
         }
         if (tipo == null || area == null || prioridade == null) {
@@ -97,7 +97,7 @@ public class Missao implements Serializable {
         if (status != StatusMissao.EM_ANDAMENTO) {
             throw new IllegalStateException("Missao deve estar em andamento");
         }
-        if (resultado == null) {
+        if (resultado == null || resultado.isBlank()) {
             throw new IllegalArgumentException("Resultado deve ser registrado");
         }
         this.resultado = resultado;

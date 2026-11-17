@@ -14,7 +14,7 @@ public class AreaOperacao implements Serializable {
 
     public AreaOperacao(String descricao, int id, NivelRisco nivelRisco,
             String localizacao, String nome, TipoTerreno tipoTerreno) {
-        this.id = id;
+        setId(id);
         setDescricao(descricao);
         setNivelRisco(nivelRisco);
         setLocalizacao(localizacao);
@@ -27,6 +27,9 @@ public class AreaOperacao implements Serializable {
     }
 
     public void setDescricao(String descricao) {
+        if (descricao == null || descricao.isBlank()) {
+            throw new IllegalArgumentException("A descricao da area e obrigatoria");
+        }
         this.descricao = descricao;
     }
 
@@ -35,6 +38,12 @@ public class AreaOperacao implements Serializable {
     }
 
     public void setId(int id) {
+        if (id <= 0) {
+            throw new IllegalArgumentException("ID invalido");
+        }
+        if (this.id != 0 && this.id != id) {
+            throw new IllegalStateException("O ID de uma area existente nao pode ser alterado");
+        }
         this.id = id;
     }
 

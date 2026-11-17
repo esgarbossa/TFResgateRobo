@@ -1,0 +1,102 @@
+PASSOU: bateria invalida -1.0
+PASSOU: bateria invalida 101.0
+PASSOU: bateria invalida NaN
+PASSOU: bateria invalida Infinity
+PASSOU: nome vazio
+PASSOU: contador negativo
+PASSOU: status nulo
+PASSOU: alcance zero
+PASSOU: carga invalida
+PASSOU: nome da area vazio
+PASSOU: localizacao nula
+PASSOU: risco nulo
+PASSOU: terreno nulo
+PASSOU: ID da area nao muda
+PASSOU: atualizacao do risco
+PASSOU: consumo drone RECONHECIMENTO/URBANO/BAIXO
+PASSOU: consumo drone RECONHECIMENTO/URBANO/MEDIO
+PASSOU: consumo drone RECONHECIMENTO/URBANO/ALTO
+PASSOU: consumo drone RECONHECIMENTO/ALAGADO/BAIXO
+PASSOU: consumo drone RECONHECIMENTO/ALAGADO/MEDIO
+PASSOU: consumo drone RECONHECIMENTO/ALAGADO/ALTO
+PASSOU: consumo drone RECONHECIMENTO/IRREGULAR/BAIXO
+PASSOU: consumo drone RECONHECIMENTO/IRREGULAR/MEDIO
+PASSOU: consumo drone RECONHECIMENTO/IRREGULAR/ALTO
+PASSOU: consumo drone LOCALIZACAO_DE_PESSOAS/URBANO/BAIXO
+PASSOU: consumo terrestre LOCALIZACAO_DE_PESSOAS/URBANO/BAIXO
+PASSOU: consumo drone LOCALIZACAO_DE_PESSOAS/URBANO/MEDIO
+PASSOU: consumo terrestre LOCALIZACAO_DE_PESSOAS/URBANO/MEDIO
+PASSOU: consumo drone LOCALIZACAO_DE_PESSOAS/URBANO/ALTO
+PASSOU: consumo terrestre LOCALIZACAO_DE_PESSOAS/URBANO/ALTO
+PASSOU: consumo drone LOCALIZACAO_DE_PESSOAS/ALAGADO/BAIXO
+PASSOU: consumo drone LOCALIZACAO_DE_PESSOAS/ALAGADO/MEDIO
+PASSOU: consumo drone LOCALIZACAO_DE_PESSOAS/ALAGADO/ALTO
+PASSOU: consumo drone LOCALIZACAO_DE_PESSOAS/IRREGULAR/BAIXO
+PASSOU: consumo terrestre LOCALIZACAO_DE_PESSOAS/IRREGULAR/BAIXO
+PASSOU: consumo drone LOCALIZACAO_DE_PESSOAS/IRREGULAR/MEDIO
+PASSOU: consumo terrestre LOCALIZACAO_DE_PESSOAS/IRREGULAR/MEDIO
+PASSOU: consumo drone LOCALIZACAO_DE_PESSOAS/IRREGULAR/ALTO
+PASSOU: consumo terrestre LOCALIZACAO_DE_PESSOAS/IRREGULAR/ALTO
+PASSOU: consumo terrestre TRANSPORTE_DE_SUPRIMENTOS/URBANO/BAIXO
+PASSOU: consumo terrestre TRANSPORTE_DE_SUPRIMENTOS/URBANO/MEDIO
+PASSOU: consumo terrestre TRANSPORTE_DE_SUPRIMENTOS/URBANO/ALTO
+PASSOU: consumo terrestre TRANSPORTE_DE_SUPRIMENTOS/IRREGULAR/BAIXO
+PASSOU: consumo terrestre TRANSPORTE_DE_SUPRIMENTOS/IRREGULAR/MEDIO
+PASSOU: consumo terrestre TRANSPORTE_DE_SUPRIMENTOS/IRREGULAR/ALTO
+PASSOU: tipo nulo
+PASSOU: risco nulo no consumo
+PASSOU: drone nao transporta
+PASSOU: terrestre nao entra em alagado
+PASSOU: robo duplicado
+PASSOU: area duplicada
+PASSOU: missao duplicada
+PASSOU: area externa
+PASSOU: iniciar sem robo
+PASSOU: execucao direta sem atribuicao
+PASSOU: atribuir robo incompativel
+PASSOU: pendente permanece na fila
+Robo Drone 1 recebeu: Atribuido a missao 1
+PASSOU: reserva preserva pendente na fila
+PASSOU: nao executa antes de iniciar
+PASSOU: duas missoes no mesmo robo
+PASSOU: recarga ocupado
+Robo Drone 1 recebeu: Iniciar missao 1
+PASSOU: inicio remove da fila
+Robo Drone 1 enviou: Iniciando missao: RECONHECIMENTO
+Robo Drone 1 enviou: Reconhecimento aereo concluido: informacoes da area coletadas.
+PASSOU: missao concluida com resultado
+PASSOU: bateria descontada
+PASSOU: contador incrementado
+PASSOU: nao repete conclusao
+PASSOU: nao reinicia concluida
+PASSOU: nao reinicia cancelada
+Robo Terrestre recebeu: Atribuido a missao 3
+Robo Terrestre recebeu: Iniciar missao 3
+Robo Terrestre enviou: Iniciando missao: TRANSPORTE_DE_SUPRIMENTOS
+Robo Terrestre enviou: Transporte concluido: suprimentos entregues na area.
+PASSOU: execucao terrestre
+Robo Drone 3 recebeu: Atribuido a missao 4
+Robo Drone 3 recebeu: Iniciar missao 4
+Robo Drone 3 enviou: Iniciando missao: RECONHECIMENTO
+Robo Drone 3 enviou: Reconhecimento aereo concluido: informacoes da area coletadas.
+PASSOU: bateria exata termina sem bateria
+PASSOU: recarga restaura disponibilidade
+PASSOU: recarga preserva manutencao
+PASSOU: setter status nulo
+PASSOU: mensagem vazia
+PASSOU: comunicacao recebida
+PASSOU: atribuicao com bateria insuficiente
+PASSOU: sem bateria suficiente permanece pendente
+PASSOU: recomendacao desempata por menor ID
+PASSOU: persistencia recupera robos
+PASSOU: persistencia preserva bateria e contador
+PASSOU: persistencia preserva referencias
+PASSOU: persistencia preserva fila
+Robo Drone 6 recebeu: Atribuido a missao 5
+Robo Drone 6 recebeu: Iniciar missao 5
+Robo Drone 6 enviou: Iniciando missao: RECONHECIMENTO
+Robo Drone 6 enviou: Reconhecimento aereo concluido: informacoes da area coletadas.
+PASSOU: continuidade depois de carregar
+PASSOU: backup criado
+PASSOU: relatorio totais corretos
+RESULTADO: 85 verificacoes passaram; 0 falhas.

@@ -4,6 +4,7 @@ import enums.NivelRisco;
 import enums.StatusRobo;
 import enums.TipoMissao;
 import enums.TipoTerreno;
+import missoes.Missao;
 
 public class Drone extends Robo {
     private double alcanceMaximo;
@@ -24,9 +25,26 @@ public class Drone extends Robo {
     }
 
     @Override
-    public void executarMissao() {
+    public String executarMissao(Missao missao) {
+        double consumo = validarExecucao(missao);
+        TipoMissao tipo = missao.getTipo();
+        enviarMensagem("Iniciando missao: " + tipo);
 
+        String resultado;
+
+        if (tipo == TipoMissao.RECONHECIMENTO) {
+            resultado = "Reconhecimento aereo concluido: "
+                    + "informacoes da area coletadas.";
+        } else {
+            resultado = "Busca aerea concluida: "
+                    + "varredura para localizacao de pessoas realizada.";
+        }
+
+        finalizarExecucao(missao, consumo);
+        enviarMensagem(resultado);
+        return resultado;
     }
+
 
     @Override
     public boolean compativelCom(TipoMissao tipo, TipoTerreno terreno) {
