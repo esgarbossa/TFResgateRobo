@@ -20,6 +20,7 @@ public class Relatorio {
         this.totalRobos = totalRobos;
         this.totalMissoes = missoes.size();
         this.missoesConcluidas = missoes.stream().filter(m -> m.getStatus() == StatusMissao.CONCLUIDA).count();
+        this.missoesPendentes = missoes.stream().filter(m -> m.getStatus() == StatusMissao.PENDENTE).count();
     }
 
     public String gerarResumo() {
